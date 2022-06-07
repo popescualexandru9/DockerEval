@@ -2,11 +2,10 @@
 require 'rails_helper'
 
 RSpec.describe 'redis service' do
-   let(:redis) { Redis.new}
+   let(:redis) { Redis.new(host: 'redis')}
    specify do
    
       redis.set 'key', 'value'
-
       expect(redis.get('key') == 'value')
    end
 end
